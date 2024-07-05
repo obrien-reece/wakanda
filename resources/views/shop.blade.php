@@ -513,22 +513,59 @@
         <!-- Modal for the cart items -->
 
         <script>
-        $(document).ready(function() {
-            $(document).on('click', '.add-to-cart', function() {
-                var currentCounter = parseInt($('#cartCounter').text());
-                $('#cartCounter').text(currentCounter + 1);
+$(document).ready(function() {
+    $(document).on('click', '.add-to-cart', function() {
+        var currentCounter = parseInt($('#cartCounter').text());
+        $('#cartCounter').text(currentCounter + 1);
 
-                var productCategory = $(this).closest('.product-content').find('.category a').text()
-                var productName = $(this).closest('.product-content').find('.title a').text()
-                var productDiscontedPrice = $(this).closest('.product-content').find('.price .discounted-price').text()
+        // Extract product details
+        var productCategory = $(this).closest('.product-content').find('.category a').text().trim();
+        var productName = $(this).closest('.product-content').find('.title a').text().trim();
+        var productDiscountedPrice = $(this).closest('.product-content').find('.price .discounted-price').text().trim();
 
-                $('#modalProductCategory').append(productCategory)
-                $('#modalProductName').append(productName)
-                $('#modalProductPrice').append(productDiscontedPrice)
-            });
-        });
+        // Create a new row with the product details
+        var newRow = `
+<div class="cart-item-container">
+<div class="row mb-3 d-flex justify-content-between align-items-center cart-item">
+<div class="col-md-2 col-lg-2 col-xl-2">
+<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded-3" alt="Product Image" width="30px">
+</div>
+<div class="col-md-3 col-lg-3 col-xl-3">
+<h6 class="text-muted quantico" style="font-size: 1.1rem;">${productCategory}</h6>
+<span class="mb-0" style="font-size: 0.9rem;">${productName}</span>
+</div>
+<div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+<button class="btn btn-link px-2 karteye" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+<i class="fas fa-minus"></i>
+</button>
+<input min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 60px; font-size: 1rem; padding: 0.2rem 0.5rem;" />
+<button class="btn btn-link px-2 karteye" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+<i class="fas fa-plus"></i>
+</button>
+</div>
+<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+<h6 class="mb-0" style="font-size: 1.2rem;">${productDiscountedPrice}</h6>
+</div>
+<div class="col-md-1 col-lg-1 col-xl-1 text-end">
+<a href="#!" class="text-muted remove-item"><i class="fas fa-times"></i></a>
+</div>
+</div>
+<hr class="my-2">
+</div>
+`;
+
+        // Append the new row to the cart items
+        $('#cartItems').append(newRow);
+    });
+
+    // Handle remove item
+    $(document).on('click', '.remove-item', function() {
+        $(this).closest('.cart-item-container').remove();
+        var currentCounter = parseInt($('#cartCounter').text());
+        $('#cartCounter').text(currentCounter - 1);
+    });
+});
         </script>
-
 
         <!--=============== MIXITUP FILTER ===============-->
         <script src="{{ asset('js/mixitup.min.js') }}"></script>
