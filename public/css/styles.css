@@ -922,18 +922,18 @@ button {
         text-transform: initial;
     }
 
-    .nav__link::after {
-        content: '';
-        position: absolute;
-        width: 1px;
-        height: 12px;
-        background-color: var(--text-color-light);
-        transform: translateX(1.25rem);
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-    }
-
+    /* .nav__link::after { */
+    /*     content: ''; */
+    /*     position: absolute; */
+    /*     width: 1px; */
+    /*     height: 12px; */
+    /*     background-color: var(--text-color-light); */
+    /*     transform: translateX(1.25rem); */
+    /*     top: 0; */
+    /*     bottom: 0; */
+    /*     margin: auto 0; */
+    /* } */
+    /**/
     .scroll-header .nav__link {
         color: var(--text-color);
     }
@@ -1208,6 +1208,6 @@ on the image of the gif */
     color: white;
     border-radius: 20%;
     padding: 1px 3px;
-    font-size: 12px;
+    font-size: 10px;
 }
 /* Shopping cart number at the top */
