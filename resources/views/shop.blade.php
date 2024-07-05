@@ -26,6 +26,44 @@
     </head>
 
     <body>
+        <style>
+        /* Modal Styles */
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 60px;
+        }
+
+        .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        }
+
+        .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+        </style>
         <!--==================== LOADER ====================-->
         <!-- <div class="load" id="load"> -->
         <!---->
@@ -51,13 +89,61 @@
                         <li class="nav__item"><a style="text-decoration: none;" href="#products" class="nav__link">Products</a></li>
                         <li class="nav__item"><a style="text-decoration: none;" href="#Contact Us" class="nav__link">Contact Us</a></li>
                         <li class="nav__item">
-                            <a class="nav__link" href="#">
-                                <div class="cart-icon-container">
-                                    <span class="mdi mdi-cart"></span>
-                                    <span class="badge badge-danger">11</span>
-                                </div>
-                            </a>
+                            <div class="cart-icon-container" id="cartIcon">
+                                <span class="mdi mdi-cart"></span>
+                                <span class="badge badge-danger" style="display: block;">11</span>
+                            </div>
                         </li>
+                    </ul>
+
+                    <!-- The Modal -->
+                    <div id="cartModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Your Cart</h2>
+                            <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                                <li>Item 5</li>
+                                <li>Item 6</li>
+                                <li>Item 7</li>
+                                <li>Item 8</li>
+                                <li>Item 9</li>
+                                <li>Item 10</li>
+                                <li>Item 11</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <script>
+                    // Get the modal
+                    var modal = document.getElementById("cartModal");
+
+                    // Get the button that opens the modal
+                    var cartIcon = document.getElementById("cartIcon");
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on the button, open the modal
+                    cartIcon.onclick = function() {
+                        modal.style.display = "block";
+                    }
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "block";
+                        }
+                    }
+                    </script>
                     </ul>
 
                     <div class="nav__close" id="nav-close">
