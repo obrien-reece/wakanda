@@ -54,10 +54,10 @@ let mixerProducts = mixitup('.products__content', {
 	}
 });
 
-/* Default filter products */ 
+/* Default filter products */
 mixerProducts.filter('.delicacies');
 
-/* Link active products */ 
+/* Link active products */
 let linkProducts = document.querySelectorAll('.products__item');
 
 function activeProducts() {
@@ -67,7 +67,7 @@ function activeProducts() {
 
 linkProducts.forEach(l => l.addEventListener('click', activeProducts));
 
-/*=============== SHOW SCROLL UP ===============*/ 
+/*=============== SHOW SCROLL UP ===============*/
 function scrollUp() {
 	const scrollUp = document.getElementById('scroll-up');
 	if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll');
