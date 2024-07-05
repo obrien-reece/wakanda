@@ -522,9 +522,9 @@
                 var productName = $(this).closest('.product-content').find('.title a').text()
                 var productDiscontedPrice = $(this).closest('.product-content').find('.price .discounted-price').text()
 
-                $('#modalProductCategory').text(productCategory)
-                $('#modalProductName').text(productName)
-                $('#modalProductPrice').text(productDiscontedPrice)
+                $('#modalProductCategory').append(productCategory)
+                $('#modalProductName').append(productName)
+                $('#modalProductPrice').append(productDiscontedPrice)
             });
         });
         </script>
