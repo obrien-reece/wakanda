@@ -1210,4 +1210,15 @@ on the image of the gif */
     padding: 1px 3px;
     font-size: 10px;
 }
+
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.karteye {
+    box-shadow: none !important;
+    outline: none !important;
+}
 /* Shopping cart number at the top */

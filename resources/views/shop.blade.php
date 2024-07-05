@@ -9,9 +9,10 @@
         <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
 
-        <!--=============== BOXICONS ===============-->
+        <!--=============== ICONS ===============-->
         <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
@@ -26,57 +27,12 @@
     </head>
 
     <body>
-        <style>
-        /* Modal Styles */
-        .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.4);
-        padding-top: 60px;
-        }
-
-        .modal-content {
-        background-color: #fefefe;
-        margin: 5% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        }
-
-        .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-        }
-        </style>
-        <!--==================== LOADER ====================-->
-        <!-- <div class="load" id="load"> -->
-        <!---->
-        <!--     <img src="assets/img/loadcoffee.gif" alt="" class="load__gif"> -->
-        <!---->
-        <!-- </div> -->
-
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
 
             <nav class="nav container">
 
-                <a href="#" class="nav__logo" style="text-decoration: none;">
+                <a href="{{ route('shopping.index') }}" class="nav__logo" style="text-decoration: none;">
 
                     <img src="{{ asset('img/logo.png') }}" alt="" class="nav__logo-img">
                     Wakanda Zone.
@@ -89,61 +45,14 @@
                         <li class="nav__item"><a style="text-decoration: none;" href="#products" class="nav__link">Products</a></li>
                         <li class="nav__item"><a style="text-decoration: none;" href="#Contact Us" class="nav__link">Contact Us</a></li>
                         <li class="nav__item">
-                            <div class="cart-icon-container" id="cartIcon">
+                            <div class="cart-icon-container" id="cartIcon" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 <span class="mdi mdi-cart"></span>
                                 <span class="badge badge-danger" style="display: block;">11</span>
                             </div>
                         </li>
-                    </ul>
 
-                    <!-- The Modal -->
-                    <div id="cartModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h2>Your Cart</h2>
-                            <ul>
-                                <li>Item 1</li>
-                                <li>Item 2</li>
-                                <li>Item 3</li>
-                                <li>Item 4</li>
-                                <li>Item 5</li>
-                                <li>Item 6</li>
-                                <li>Item 7</li>
-                                <li>Item 8</li>
-                                <li>Item 9</li>
-                                <li>Item 10</li>
-                                <li>Item 11</li>
-                            </ul>
-                        </div>
-                    </div>
+                        <!-- Modal -->
 
-                    <script>
-                    // Get the modal
-                    var modal = document.getElementById("cartModal");
-
-                    // Get the button that opens the modal
-                    var cartIcon = document.getElementById("cartIcon");
-
-                    // Get the <span> element that closes the modal
-                    var span = document.getElementsByClassName("close")[0];
-
-                    // When the user clicks on the button, open the modal
-                    cartIcon.onclick = function() {
-                        modal.style.display = "block";
-                    }
-
-                    // When the user clicks on <span> (x), close the modal
-                    span.onclick = function() {
-                        modal.style.display = "none";
-                    }
-
-                    // When the user clicks anywhere outside of the modal, close it
-                    window.onclick = function(event) {
-                        if (event.target == modal) {
-                            modal.style.display = "block";
-                        }
-                    }
-                    </script>
                     </ul>
 
                     <div class="nav__close" id="nav-close">
@@ -307,14 +216,14 @@
                             <div class="col-md-3 col-sm-6 mb-3">
                                 <div class="product-grid">
                                     <div class="product-image">
-                                        <a href="#" class="image">
+                                        <a href="javascript:void(0)" class="image">
                                             <img class="pic-1" src="{{ asset('img/delicacies1.png') }}">
                                         </a>
                                         <span class="product-discount-label">{{ $product->product_discount_percentage }}</span>
                                         <ul class="product-links">
-                                            <li><a href="#" data-tip="Add to Wishlist"><i class='bx bx-heart'></i></a></li>
-                                            <!-- <li><a href="#" data-tip="Compare"><i class="fa fa-random"></i></a></li> -->
-                                            <li><a href="#" data-tip="Quick View"><span class="mdi mdi-eye-outline"></span></a></li>
+                                            <li><a href="javascript:void(0)" data-tip="Add to Wishlist"><i class='bx bx-heart'></i></a></li>
+                                            <!-- <li><a href="javascript:void(0)" data-tip="Compare"><i class="fa fa-random"></i></a></li> -->
+                                            <li><a href="javascript:void(0)" data-tip="Quick View"><span class="mdi mdi-eye-outline"></span></a></li>
                                         </ul>
                                     </div>
                                     <div class="product-content">
@@ -327,7 +236,7 @@
                                         </ul>
                                         <h3 class="title"><a href="#" style="text-decoration: none">{{ $product->product_name }}</a></h3>
                                         <div class="price"><span>Ksh.{{ $product->product_price }}</span> Ksh.{{ $product->product_discounted_price }}</div>
-                                        <a class="add-to-cart" href="#" style="text-decoration: none">add to cart</a>
+                                        <a id="addToCart{{ $loop->index }}" class="add-to-cart" href="javascript:void(0)" style="text-decoration: none">add to cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -593,6 +502,118 @@
 
         </a>
 
+        <!-- Modal for the cart items -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 1.6rem;">Your Cart</h5> <!-- Reduced font size -->
+                        <button type="button" class="btn-close karteye" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <section class="h-100 h-custom" style="background-color: #f5f5f5;">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col-12">
+                                    <div class="card card-registration card-registration-2" style="border-radius: 0;">
+                                        <div class="card-body p-0">
+                                            <div class="row g-0">
+                                                <div class="col-lg-8">
+                                                    <div class="p-4"> <!-- Reduced padding for smaller content area -->
+                                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                                            <h2 class="fw-bold mb-0" style="font-size: 1.4rem;">Shopping Cart</h2> <!-- Reduced font size -->
+                                                            <h6 class="mb-0 text-muted" style="font-size: 1.2rem;">3 items</h6> <!-- Reduced font size -->
+                                                        </div>
+                                                        <hr class="my-2">
+                                                        <div class="row mb-3 d-flex justify-content-between align-items-center">
+                                                            <div class="col-md-2 col-lg-2 col-xl-2">
+                                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded-3" alt="Cotton T-shirt" width="30px">
+                                                            </div>
+                                                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                                                <h6 class="text-muted" style="font-size: 1.1rem;">Shirt</h6> <!-- Reduced font size -->
+                                                                <h6 class="mb-0" style="font-size: 1.2rem;">Cotton T-shirt</h6> <!-- Reduced font size -->
+                                                            </div>
+                                                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                                <button class="btn btn-link px-2 karteye" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                                    <i class="fas fa-minus"></i>
+                                                                </button>
+                                                                <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 60px; font-size: 1rem; padding: 0.2rem 0.5rem;" /> <!-- Adjusted width and font size -->
+                                                                <button class="btn btn-link px-2 karteye" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                                    <i class="fas fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                                <h6 class="mb-0" style="font-size: 1.2rem;">€ 44.00</h6> <!-- Reduced font size -->
+                                                            </div>
+                                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="my-2">
+                                                        <div class="pt-4">
+                                                            <h6 class="mb-0"><a href="#!" class="text-body" style="text-decoration: none;"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 bg-light">
+                                                    <div class="p-4"> <!-- Reduced padding for smaller content area -->
+                                                        <h3 class="fw-bold mb-4 mt-2 pt-1" style="font-size: 1.4rem;">Summary</h3> <!-- Reduced font size -->
+                                                        <hr class="my-2">
+                                                        <div class="d-flex justify-content-between mb-3">
+                                                            <h5 class="text-uppercase" style="font-size: 1rem;">items 3</h5> <!-- Reduced font size -->
+                                                            <h5 style="font-size: 1.2rem;">€ 132.00</h5> <!-- Reduced font size -->
+                                                        </div>
+                                                        <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Shipping</h5> <!-- Reduced font size -->
+                                                        <div class="mb-3 pb-1">
+                                                            <select class="form-select form-select-sm" style="font-size: 0.9rem;"> <!-- Reduced font size -->
+                                                                <option value="1">Standard-Delivery- €5.00</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                                <option value="4">Four</option>
+                                                            </select>
+                                                        </div>
+                                                        <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Enter code</h5> <!-- Reduced font size -->
+                                                        <div class="mb-4">
+                                                            <div class="form-outline">
+                                                                <input type="text" id="form3Examplea2" class="form-control form-control-sm" style="font-size: 0.9rem;" /> <!-- Reduced font size -->
+                                                                <label class="form-label" for="form3Examplea2">Enter your code</label>
+                                                            </div>
+                                                        </div>
+                                                        <hr class="my-2">
+                                                        <div class="d-flex justify-content-between mb-4">
+                                                            <h5 class="text-uppercase" style="font-size: 1rem;">Total price</h5> <!-- Reduced font size -->
+                                                            <h5 style="font-size: 1.2rem;">€ 137.00</h5> <!-- Reduced font size -->
+                                                        </div>
+                                                        <button type="button" class="btn btn-dark btn-block btn-sm">Register</button> <!-- Reduced button size -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button> <!-- Reduced button size -->
+                        <button type="button" class="btn btn-primary btn-sm">Checkout</button> <!-- Reduced button size -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+    $(document).ready(function() {
+        @foreach($products as $index => $product)
+            $('#adwToCart{{ $index }}').on('click', function() {
+                alert('Adding {{ $product->product_name }} to cart');
+            });
+        @endforeach
+    });
+
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!--=============== MIXITUP FILTER ===============-->
         <script src="{{ asset('js/mixitup.min.js') }}"></script>
