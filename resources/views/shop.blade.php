@@ -236,6 +236,7 @@
                                             <li class="far fa-star"></li>
                                             <li class="far fa-star"></li>
                                         </ul>
+                                        <h3 class="category" style="display: none;"><a href="#" style="text-decoration: none">{{ $product->product_category }}</a></h3>
                                         <h3 class="title"><a href="#" style="text-decoration: none">{{ $product->product_name }}</a></h3>
                                         <div class="price">
                                             <span class="original-price">Ksh.{{ $product->product_price }}</span>
@@ -517,9 +518,11 @@
                 var currentCounter = parseInt($('#cartCounter').text());
                 $('#cartCounter').text(currentCounter + 1);
 
+                var productCategory = $(this).closest('.product-content').find('.category a').text()
                 var productName = $(this).closest('.product-content').find('.title a').text()
                 var productDiscontedPrice = $(this).closest('.product-content').find('.price .discounted-price').text()
 
+                $('#modalProductCategory').text(productCategory)
                 $('#modalProductName').text(productName)
                 $('#modalProductPrice').text(productDiscontedPrice)
             });

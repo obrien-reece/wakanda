@@ -23,7 +23,7 @@
                                                         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded-3" alt="Cotton T-shirt" width="30px">
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-3">
-                                                        <h6 class="text-muted" style="font-size: 1.1rem;">Shirt</h6>
+                                                        <h6 class="text-muted quantico" style="font-size: 1.1rem;" id="modalProductCategory"></h6>
                                                         <span class="mb-0 modalProductName" id="modalProductName" style="font-size: 0.9rem;"></span>
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">

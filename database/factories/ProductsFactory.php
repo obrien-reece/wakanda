@@ -17,6 +17,7 @@ class ProductsFactory extends Factory
     public function definition(): array
     {
         return [
+            'product_category' => fake()->randomElement(['Furniture', 'Cutlery', 'Kitchen Appliances', 'Home Decor', 'Electronics', 'Bedding', 'Outdoor Gear', 'Personal Care']),
             'product_name' => fake()->randomElement(['Edenburg Toaster', '14 pcs Tornado Sufurias', 'Alyons 2 in 1 Blender', 'Galaxy 5-Speed Hand Mixer', 'Sterling Non-Stick Cookware Set', 'Prestige Electric Kettle', 'ProChef Digital Air Fryer', 'UltraChef Stainless Steel Pressure']),
             'product_price' =>  fake()->numberBetween(1000, 7000),
             'product_discount_percentage' => fake()->randomElement(["-22%", "-30%", "-33%", "-20%"]),
