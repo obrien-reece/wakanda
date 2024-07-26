@@ -32,30 +32,30 @@
                                                 <hr class="my-2">
                                                 <div class="d-flex justify-content-between mb-3">
                                                     <h5 class="text-uppercase" style="font-size: 1rem;">items 3</h5>
-                                                    <h5 style="font-size: 1.2rem;">€ 132.00</h5>
+                                                    <h5 style="font-size: 1.2rem;">Ksh. 132.00</h5>
                                                 </div>
                                                 <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Shipping</h5>
                                                 <div class="mb-3 pb-1">
                                                     <select class="form-select form-select-sm" style="font-size: 0.9rem;">
-                                                        <option value="1">Standard-Delivery- €5.00</option>
+                                                        <option value="1">Standard-Delivery- Ksh.5.00</option>
                                                         <option value="2">Two</option>
                                                         <option value="3">Three</option>
                                                         <option value="4">Four</option>
                                                     </select>
                                                 </div>
-                                                <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Enter code</h5>
+                                                <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Enter MPESA code</h5>
                                                 <div class="mb-4">
                                                     <div class="form-outline">
                                                         <input type="text" id="form3Examplea2" class="form-control form-control-sm" style="font-size: 0.9rem;" />
-                                                        <label class="form-label" for="form3Examplea2">Enter your code</label>
+                                                        <!-- <label class="form-label" for="form3Examplea2">Enter your code</label> -->
                                                     </div>
                                                 </div>
                                                 <hr class="my-2">
                                                 <div class="d-flex justify-content-between mb-4">
                                                     <h5 class="text-uppercase" style="font-size: 1rem;">Total price</h5>
-                                                    <h5 style="font-size: 1.2rem;">€ 137.00</h5>
+                                                    <h5 style="font-size: 1.2rem;">Ksh. 137.00</h5>
                                                 </div>
-                                                <button type="button" class="btn btn-dark btn-block btn-sm">Register</button>
+                                                <!-- <button type="button" class="btn btn-dark btn-block btn-sm">Register</button> -->
                                             </div>
                                         </div>
                                     </div>
