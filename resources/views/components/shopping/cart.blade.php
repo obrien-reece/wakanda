@@ -30,19 +30,22 @@
                                             <div class="p-4">
                                                 <h3 class="fw-bold mb-4 mt-2 pt-1" style="font-size: 1.4rem;">Summary</h3>
                                                 <hr class="my-2">
+
                                                 <div class="d-flex justify-content-between mb-3">
-                                                    <h5 class="text-uppercase" style="font-size: 1rem;">items 3</h5>
-                                                    <h5 style="font-size: 1.2rem;">Ksh. 132.00</h5>
+                                                    <h5 id="itemCount" class="text-uppercase" style="font-size: 1rem;">items 0</h5>
+                                                    <h5 id="totalPrice" style="font-size: 1.2rem;">Ksh. 0.00</h5>
                                                 </div>
-                                                <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Shipping</h5>
-                                                <div class="mb-3 pb-1">
-                                                    <select class="form-select form-select-sm" style="font-size: 0.9rem;">
-                                                        <option value="1">Standard-Delivery- Ksh.5.00</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
-                                                        <option value="4">Four</option>
-                                                    </select>
+
+                                                <div class="d-flex justify-content-between mb-3">
+                                                    <h5 id="itemCount" class="text-uppercase" style="font-size: 1rem;color: green">PAYBILL</h5>
+                                                    <h5 id="totalPrice" style="font-size: 1.2rem;color: green">247247</h5>
                                                 </div>
+
+                                                <div class="d-flex justify-content-between mb-3">
+                                                    <h5 id="itemCount" class="text-uppercase" style="font-size: 1rem;color: green">ACOUNT NUMBER</h5>
+                                                    <h5 id="totalPrice" style="font-size: 1.2rem;color: green">78339903</h5>
+                                                </div>
+
                                                 <h5 class="text-uppercase mb-2" style="font-size: 1rem;">Enter MPESA code</h5>
                                                 <div class="mb-4">
                                                     <div class="form-outline">
@@ -51,11 +54,6 @@
                                                     </div>
                                                 </div>
                                                 <hr class="my-2">
-                                                <div class="d-flex justify-content-between mb-4">
-                                                    <h5 class="text-uppercase" style="font-size: 1rem;">Total price</h5>
-                                                    <h5 style="font-size: 1.2rem;">Ksh. 137.00</h5>
-                                                </div>
-                                                <!-- <button type="button" class="btn btn-dark btn-block btn-sm">Register</button> -->
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +65,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary btn-sm">Checkout</button>
+<button type="button" class="btn btn-primary btn-sm checkoutButton" id="checkoutButton">Checkout</button>
             </div>
         </div>
     </div>

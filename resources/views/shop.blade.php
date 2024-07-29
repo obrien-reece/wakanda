@@ -15,16 +15,17 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+        {{--Imported jquery for purposes of using the toastr library--}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-        <title>Wakanda Zone Stock</title>
+        <!-- JQUERY -->        <title>Wakanda Zone Stock</title>
 
     </head>
 
@@ -513,6 +514,7 @@
         <!-- Modal for the cart items -->
 
         <script>
+
 $(document).ready(function() {
     $(document).on('click', '.add-to-cart', function() {
         var currentCounter = parseInt($('#cartCounter').text());
@@ -521,41 +523,44 @@ $(document).ready(function() {
         // Extract product details
         var productCategory = $(this).closest('.product-content').find('.category a').text().trim();
         var productName = $(this).closest('.product-content').find('.title a').text().trim();
-        var productDiscountedPrice = $(this).closest('.product-content').find('.price .discounted-price').text().trim();
+        var productDiscountedPrice = parseFloat($(this).closest('.product-content').find('.price .discounted-price').text().trim().replace('Ksh.', ''));
 
         // Create a new row with the product details
         var newRow = `
-<div class="cart-item-container">
-<div class="row mb-3 d-flex justify-content-between align-items-center cart-item">
-<div class="col-md-2 col-lg-2 col-xl-2">
-<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded-3" alt="Product Image" width="30px">
-</div>
-<div class="col-md-3 col-lg-3 col-xl-3">
-<h6 class="text-muted quantico" style="font-size: 1.1rem;">${productCategory}</h6>
-<span class="mb-0" style="font-size: 0.9rem;">${productName}</span>
-</div>
-<div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-<button class="btn btn-link px-2 karteye" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-<i class="fas fa-minus"></i>
-</button>
-<input min="0" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 60px; font-size: 1rem; padding: 0.2rem 0.5rem;" />
-<button class="btn btn-link px-2 karteye" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-<i class="fas fa-plus"></i>
-</button>
-</div>
-<div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-<h6 class="mb-0" style="font-size: 1.2rem;">${productDiscountedPrice}</h6>
-</div>
-<div class="col-md-1 col-lg-1 col-xl-1 text-end">
-<a href="#!" class="text-muted remove-item"><i class="fas fa-times"></i></a>
-</div>
-</div>
-<hr class="my-2">
-</div>
-`;
+        <div class="cart-item-container">
+            <div class="row mb-3 d-flex justify-content-between align-items-center cart-item">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp" class="img-fluid rounded-3" alt="Product Image" width="30px">
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                    <h6 class="text-muted quantico" style="font-size: 1.1rem;">${productCategory}</h6>
+                    <span class="mb-0" style="font-size: 0.9rem;">${productName}</span>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                    <button class="btn btn-link px-2 karteye" onclick="updateQuantity(this, -1)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <input min="1" name="quantity" value="1" type="number" class="form-control form-control-sm" style="width: 60px; font-size: 1rem; padding: 0.2rem 0.5rem;" onchange="updateQuantity(this, 0)" />
+                    <button class="btn btn-link px-2 karteye" onclick="updateQuantity(this, 1)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h6 class="mb-0 item-price" style="font-size: 1.2rem;">Ksh. ${productDiscountedPrice.toFixed(2)}</h6>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <a href="#!" class="text-muted remove-item"><i class="fas fa-times"></i></a>
+                </div>
+            </div>
+            <hr class="my-2">
+        </div>
+        `;
 
         // Append the new row to the cart items
         $('#cartItems').append(newRow);
+
+        // Update total price and item count
+        updateTotalPrice();
     });
 
     // Handle remove item
@@ -563,8 +568,40 @@ $(document).ready(function() {
         $(this).closest('.cart-item-container').remove();
         var currentCounter = parseInt($('#cartCounter').text());
         $('#cartCounter').text(currentCounter - 1);
+        updateTotalPrice();
     });
 });
+
+// Function to update quantity and item price
+function updateQuantity(element, change) {
+    var input = $(element).siblings('input[name="quantity"]');
+    var currentQuantity = parseInt(input.val());
+    var newQuantity = currentQuantity + change;
+    if (newQuantity >= 1) {
+        input.val(newQuantity);
+        var unitPrice = parseFloat($(element).closest('.cart-item').find('.item-price').text().trim().replace('Ksh.', ''));
+        var newItemPrice = unitPrice * newQuantity;
+        $(element).closest('.cart-item').find('.item-price').text(`Ksh. ${newItemPrice.toFixed(2)}`);
+        updateTotalPrice();
+    }
+}
+
+// Function to update total price and item count
+function updateTotalPrice() {
+    var totalPrice = 0;
+    var itemCount = 0;
+    $('#cartItems .cart-item').each(function() {
+        var itemPrice = parseFloat($(this).find('.item-price').text().trim().replace('Ksh.', ''));
+        var quantity = parseInt($(this).find('input[name="quantity"]').val());
+        totalPrice += itemPrice;
+        itemCount += quantity;
+    });
+
+    // Update total price and item count in summary
+    $('#totalPrice').text(`Ksh. ${totalPrice.toFixed(2)}`);
+    $('#itemCount').text(`items ${itemCount}`);
+}
+
         </script>
 
         <!--=============== MIXITUP FILTER ===============-->
@@ -602,6 +639,44 @@ $(document).ready(function() {
             this.value = this.value.toUpperCase();
         });
         </script>
+
+        <script>
+document.getElementById('checkoutButton').addEventListener('click', function() {
+    // Store a flag in sessionStorage to show the toast message after reload
+    sessionStorage.setItem('showToast', 'true');
+
+    // Reload the page immediately
+    window.location.reload();
+});
+</script>
+
+
+<script>
+window.addEventListener('load', function() {
+    // Check if we need to show the toast message
+    if (sessionStorage.getItem('showToast') === 'true') {
+        // Remove the flag
+        sessionStorage.removeItem('showToast');
+
+        // Set Toastr options
+        toastr.options = {
+            'progressBar': true,
+            'showMethod': 'fadeIn',
+            'positionClass': 'toast-bottom-right',
+            'hideMethod': 'fadeOut',
+            'closeButton': true,
+            'newestOnTop': false,
+        };
+
+        // Show the toast message after a delay
+        setTimeout(function() {
+            toastr.success('The items have been successfully purchased');
+        }, 1000); // Delay in milliseconds
+    }
+});
+</script>
+
+
     </body>
 
 </html>
